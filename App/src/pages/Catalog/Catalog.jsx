@@ -28,6 +28,7 @@ function Catalog() {
     axios
       .get(baseURL)
       .then(({ data }) => {
+        console.log(data.results)
         const usMedications = data.results
           .filter(item => item.primarysourcecountry === 'US')
           .map(item => ({
@@ -36,7 +37,6 @@ function Catalog() {
             reactions: item.patient.reaction
               .map(r => r.reactionmeddrapt)
               .join(', '),
-            reportDate: item.receivedate,
           }))
 
         setMedications(usMedications)

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import { ErrorPage, MainLayout, Catalog } from 'pages'
+import { ErrorPage, MainLayout, Catalog, DrugPageDetails } from 'pages'
 
 const router = createBrowserRouter([
   {
@@ -9,8 +9,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        index: true,
+        path: '/',
         element: <Catalog />,
+      },
+      {
+        path: '/:drugId',
+        element: <DrugPageDetails />,
       },
     ],
   },
