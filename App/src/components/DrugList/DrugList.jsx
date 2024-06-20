@@ -1,6 +1,6 @@
 import React from 'react'
 import Grid from '@mui/material/Grid'
-import { ProductCard } from 'components'
+import { ProductCard } from './ProductCard'
 
 const DrugList = ({ medications }) => (
   <Grid container spacing={2}>

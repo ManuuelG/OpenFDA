@@ -1,5 +1,3 @@
-// pages/Catalog.jsx
-
 import React, { useState } from 'react'
 import { Box, CircularProgress, Typography, Button } from '@mui/material'
 import { useMedications } from 'CustomHooks'
