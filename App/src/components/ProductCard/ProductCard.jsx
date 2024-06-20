@@ -1,37 +1,28 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
-import { Link } from 'react-router-dom'
 import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
 
-function ProductCard({ id, name, reactions }) {
-  return (
-    <Link to={`/${id}`} style={{ textDecoration: 'none' }}>
-      <Card sx={{ maxWidth: 345, height: '100%' }}>
-        <CardContent>
-          <Box
-            sx={{
-              textAlign: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              height: '100%',
-            }}
-          >
-            <Typography variant="h5" component="div">
-              {name}
-            </Typography>
-            <Box mt={2} spacing={3}>
-              <Typography variant="body2" color="text.secondary">
-                Reactions: {reactions}
-              </Typography>
-            </Box>
-          </Box>
-        </CardContent>
-      </Card>
-    </Link>
-  )
-}
+const ProductCard = ({ id, name }) => (
+  <Link to={`/${id}`} style={{ textDecoration: 'none' }}>
+    <Card
+      sx={{
+        mb: 2,
+        transition: 'transform 0.2s',
+        '&:hover': {
+          transform: 'scale(1.02)',
+          boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+        },
+      }}
+    >
+      <CardContent>
+        <Typography variant="body1" component="div">
+          {name}
+        </Typography>
+      </CardContent>
+    </Card>
+  </Link>
+)
 
 export default ProductCard
