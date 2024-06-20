@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-El objetivo de este proyecto es desarrollar una aplicación web en React que permita a los usuarios buscar y visualizar detalles de medicamentos registrados en Estados Unidos utilizando el API de OpenFDA. Los principales requisitos incluyen la implementación de un campo de búsqueda, la presentación de resultados paginados, y la visualización detallada de cada medicamento seleccionado.
+El objetivo de este pequeño proyecto es desarrollar una aplicación web en React que permita a los usuarios buscar y visualizar detalles de medicamentos registrados en Estados Unidos utilizando el API de OpenFDA. Los principales requisitos incluyen la implementación de un campo de búsqueda, la presentación de resultados paginados, y la visualización detallada de cada medicamento seleccionado.
 
 ## Características
 
