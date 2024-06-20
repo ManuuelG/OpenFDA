@@ -1,4 +1,4 @@
-# OpenFDA Medication Search App
+# App de búsqueda de medicamentos con la API OpenFDA
 
 ## Objetivo
 
