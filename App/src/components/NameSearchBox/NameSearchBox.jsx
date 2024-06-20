@@ -9,7 +9,7 @@ const NameSearchBox = ({ value, onChange }) => (
       variant="outlined"
       value={value}
       onChange={onChange}
-      placeholder="Buscar por nombre de medicamento"
+      placeholder="Buscar por nombre genérico de medicamento"
     />
   </Box>
 )

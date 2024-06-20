@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import axios from 'axios'
+
 import {
   Card,
   CardContent,
@@ -9,27 +9,11 @@ import {
   Button,
   CircularProgress,
 } from '@mui/material'
-
-const baseURL = 'https://api.fda.gov/drug/label.json'
+import { useMedicationDetails } from 'CustomHooks'
 
 function DrugPageDetails() {
   const { drugId } = useParams()
-  const [medicationDetails, setMedicationDetails] = useState(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    axios
-      .get(`${baseURL}?search=id:${drugId}`)
-      .then(response => {
-        console.log(response.data.results[0])
-        setMedicationDetails(response.data.results[0])
-        setLoading(false)
-      })
-      .catch(error => {
-        console.error('Error al obtener detalles del medicamento:', error)
-        setLoading(false)
-      })
-  }, [drugId])
+  const { medicationDetails, loading } = useMedicationDetails(drugId)
 
   if (loading) {
     return (
@@ -58,7 +42,19 @@ function DrugPageDetails() {
         padding: '16px',
       }}
     >
-      <Card sx={{ maxWidth: 600, width: '100%', mb: 2, mt: 5 }}>
+      <Card
+        sx={{
+          maxWidth: 600,
+          width: '100%',
+          mb: 2,
+          mt: 5,
+          padding: '16px',
+          borderRadius: '12px',
+          backgroundColor: '#f9f9f9',
+          boxShadow: '0 8px 16px rgba(0, 0, 0, 0.25)',
+          border: '1px solid #ddd',
+        }}
+      >
         <CardContent>
           <Typography
             variant="h5"
