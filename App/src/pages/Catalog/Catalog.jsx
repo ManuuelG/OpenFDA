@@ -1,3 +1,5 @@
+// pages/Catalog.jsx
+
 import React, { useState } from 'react'
 import { Box, CircularProgress, Typography, Button } from '@mui/material'
 import { useMedications } from 'CustomHooks'
@@ -64,7 +66,7 @@ function Catalog() {
           <CircularProgress />
         </Box>
       ) : (
-        <React.Fragment>
+        <>
           {medications.length > 0 ? (
             <DrugList medications={medications} />
           ) : (
@@ -90,7 +92,7 @@ function Catalog() {
               onChangePage={handlePageChange}
             />
           )}
-        </React.Fragment>
+        </>
       )}
     </Box>
   )
