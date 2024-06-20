@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Grid, Box, CircularProgress, Typography, Button } from '@mui/material'
+import { Box, CircularProgress, Typography, Button } from '@mui/material'
 import { useMedications } from 'CustomHooks'
-import { NameSearchBox, Pagination, ProductCard } from 'components'
+import { NameSearchBox, Pagination, DrugList } from 'components'
 
 function Catalog() {
   const [pageSetup, setPageSetup] = useState({
@@ -64,13 +64,9 @@ function Catalog() {
           <CircularProgress />
         </Box>
       ) : (
-        <Grid container spacing={2}>
+        <React.Fragment>
           {medications.length > 0 ? (
-            medications.map(medication => (
-              <Grid item xs={12} key={medication.id} sx={{ mt: 2 }}>
-                <ProductCard id={medication.id} name={medication.name} />
-              </Grid>
-            ))
+            <DrugList medications={medications} />
           ) : (
             <Box
               sx={{
@@ -86,15 +82,15 @@ function Catalog() {
               </Typography>
             </Box>
           )}
-        </Grid>
-      )}
-      {!loading && totalCount > 0 && medications.length > 0 && (
-        <Pagination
-          itemCount={totalCount}
-          pageSize={pageSize}
-          currentPage={currentPage}
-          onChangePage={handlePageChange}
-        />
+          {!loading && totalCount > 0 && medications.length > 0 && (
+            <Pagination
+              itemCount={totalCount}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onChangePage={handlePageChange}
+            />
+          )}
+        </React.Fragment>
       )}
     </Box>
   )
